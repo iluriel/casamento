@@ -13,41 +13,34 @@
 
 <body>
 
-    <div class="page-background"></div>
+    <main role="main" class="section__blessing--on">
 
-    <header>
-        <img src="assets/logo-aline-iluriel-horizontal.svg" alt="Página inicial">
-    </header>
-
-    <main role="main">
-
-        <section id="home">
-            <header>
-                <h1>Aline e Iluriel</h1>
-            </header>
+        <section id="section__home">
+            <img class="home__logo" src="/assets/logo-aline-iluriel-square.svg" alt="Iluriel e Aline">
+            <h1>Aline e Iluriel</h1>
             <small>Convidam para seu casamento</small>
+            <div class="background__image--top-right"></div>
+            <div class="background__image--botton-left"></div>
         </section>
 
-        <section id="history" class="section-float">
-            <header>
+        <section id="section__history" class="section__float">
+            <header class="section__title">
                 <h2>Nossa história</h2>
             </header>
-            <article>
-                <div class="history-cards">
-                    <ol>
-                        <li>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</li>
-                        <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos.</li>
-                        <li>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</li>
-                    </ol>
-                </div>
-            </article>
+            <div class="section__content">
+                <ol>
+                    <li>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</li>
+                    <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos.</li>
+                    <li>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</li>
+                </ol>
+            </div>
         </section>
 
-        <section id="ceremony" class="section-float">
-            <header>
+        <section id="section__ceremony" class="section__float">
+            <header class="section__title">
                 <h2>A cerimônia</h2>
             </header>
-            <article>
+            <!-- <div class="section-content">
                 <div class="date">
                     <time datetime="2020-06-20 18:00"></time>
                 </div>
@@ -59,28 +52,35 @@
                         <li><a href="https://goo.gl/maps/MFhh6xbco9qdBzf59" target="__blank" title="Endereço da igreja">Ver mapa</a></li>
                     </ol>
                 </address>
-            </article>
+            </article>-->
         </section>
 
-        <section id="blessing" class="section-float">
-            <header>
+        <section id="section__blessing" class="section__float">
+            <header class="section__title">
                 <h2>Sua bênção</h2>
             </header>
-            <article>
+            <!-- <div class="section-content">
                 <strong>Faça parte de nossa história!</strong>
                 <a class="btn btn-primary" href="http://finalfeliz.de/aline-iluriel" target="__blank" title="Lista de presentes">Presentear os noivos</a>
                 <a class="btn btn-secondary" href="https://www.querodecasamento.com.br/lista-de-casamento/aline-iluriel/comentarios/" target="__blank" title="Lista de presentes">Deixar uma mensagem</a>    
-            </article>
+            </div>-->
         </section>
 
-        <footer>
+        <!-- <footer>
             <blockquote>
                 <p>Lâmpada para os meus pés é tua palavra, e luz para o meu caminho.</p>
                 <cite>Sl 119:105</cite>
             </blockquote>
-        </footer>
+        </footer> -->
 
     </main>
+
+    <!--<script type="text/javascript">
+    window.addEventListener("scroll", function() {
+        var header = document.querySelector("section__history");
+        section__history.classList.toggle("section__history--scroll", window.scrollY > 0);
+        });
+    </script>-->
 
 </body>
 </html>

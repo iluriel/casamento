@@ -10,34 +10,67 @@ $colors: (
 
 @function color($color-name) {
     @return map-get($colors, $color-name)
-}
+};
 
 * {
     font-family: 'Kurale', sans-serif;
+    box-sizing: border-box;
+}
+
+/* ----- Page structure ----- */
+.section__float {
+    width: 100%;
+    height: 80vh;
+    background-color: color(white);
+    border: 1px solid color(gold);
+    border-bottom: 0;
+    border-radius: 16px 16px 0 0;
+    position: absolute;
+}
+
+#section__history {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    bottom: calc(64px - 80vh);
+}
+
+#section__ceremony {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    bottom: calc(32px - 80vh);
+}
+
+#section__blessing {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+    bottom: calc(16px - 80vh);
 }
 
 /* ----- Typography ----- */
-
 h1 {
     visibility:hidden;
+    line-height: 16px;
     text-align: center;
 }
 
-h2 {
+.section__title {
+    padding: 16px 24px 0px 24px;
     display: inline-block;
     width: 100%;
     font-size: 32px;
     line-height: 48px;
+    margin-bottom: 24px;
     color: color(green-dark);
 }
 
-strong {
+.section__title--off {
+    padding: 4px 24px 0px 24px;
     display: inline-block;
     width: 100%;
-    font-size: 24px;
-    line-height: 36px;
-    text-align: center;
-    color: color(black);
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
+    color: color(green-light);
 }
 
 small {
@@ -50,6 +83,182 @@ small {
     color: color(gray);
 }
 
+/* ----- Section Home ----- */
+#section__home {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .background__image--top-right {
+        z-index: -1;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        width: 240px;
+        height: 362px;
+        background: url(/assets/superior-direito-folhas.png);
+        background-size: cover;
+    }
+    
+    .background__image--botton-left {
+        z-index: -1;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 240px;
+        height: 212px;
+        background: url(/assets/inferior-esquerdo-folhas.png);
+        background-size: cover;
+    }
+}
+
+/* ----- Section history ----- */
+#section__history {
+
+    .section__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        ol {
+            width: 100%;
+            list-style-type: none;
+            display: flex;
+            overflow: auto;
+
+            li {
+                color: color(white);
+                padding: 16px;
+                margin-right: 16px;
+                border-radius: 16px;
+                display: flex;
+                align-items: flex-end;
+                width: calc(100% - 64px);
+                height: calc(width + 10px);
+                flex-shrink: 0;
+            }
+
+            li:nth-child(1) {
+                background-image: url(/assets/history-01.jpg);
+                background-size: cover;
+            }
+
+            li:nth-child(2) {
+                background-image: url(/assets/history-02.jpg);
+                background-size: cover;
+            }
+
+            li:nth-child(3) {
+                background-image: url(/assets/history-03.jpg);
+                background-size: cover;
+            }
+        }
+    }
+}
+
+/* ----- Scroll events ----- */
+
+.section__home--on {
+
+    #section__history {
+        .section__title {
+            padding: 4px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            color: color(green-light);
+        }
+    }
+}
+
+.section__history--on {
+
+    #section__history {
+        top: 48px;
+    }
+
+    #section__ceremony {
+        bottom: calc(48px - 80vh);
+
+        .section__title {
+            padding: 4px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            color: color(green-light);
+        }        
+    }
+}
+
+.section__ceremony--on {
+
+    #section__history {
+        top: 48px;
+    }
+
+    #section__ceremony {
+        top: 64px;
+    }
+
+    #section__blessing {
+        bottom: calc(32px - 80vh);
+
+        .section__title {
+            padding: 4px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            color: color(green-light);
+        }        
+    }
+}
+
+.section__blessing--on {
+
+    #section__history {
+        top: 48px;
+    }
+
+    #section__ceremony {
+        top: 64px;
+    }
+
+    #section__blessing {
+        top: 80px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* ----- Typography ----- 
+
+strong {
+    display: inline-block;
+    width: 100%;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    color: color(black);
+}
+
 a {
     display: inline-block;
     width: 100%;
@@ -60,28 +269,27 @@ a {
     color: color(gold);
 }
 
-/* ----- Page structure ----- */
-
-body {
-    background-color: color(white);
-
-    .page-background {
-        width: 100%;
-        height: 100%;
-        background-image: url(/casamento/assets/background-mobile.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: absolute;
-        z-index: -1;
-    }
+/* ----- Page structure ----- 
+.page-background {
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/background-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
 }
 
-section {
+.section-float {
     height: 80vh;
     padding: 16px 24px 0px 24px;
     margin-top: -16px;
+    background-color: color(white);
+    border: 1px solid color(gold);
+    border-bottom: 0;
+    border-radius: 16px 16px 0 0;
 
-    article {
+    .section-content {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -89,14 +297,7 @@ section {
     }
 }
 
-.section-float {
-    background-color: color(white);
-    border: 1px solid color(gold);
-    border-bottom: 0;
-    border-radius: 16px 16px 0 0;
-}
-
-/* ----- Section Home ----- */
+/* ----- Section Home ----- 
 
 #home {
     padding: 0 24px;
@@ -109,18 +310,18 @@ section {
         margin-bottom: 16px;
         width: 226px;
         height: 144px;
-        background-image: url(/casamento/assets/logo-aline-iluriel-square.svg);
+        background-image: url(/assets/logo-aline-iluriel-square.svg);
         background-size: cover;
         background-repeat: no-repeat;
     }
 }
 
-/* ----- Section History ----- */
+/* ----- Section History ----- 
 
 #history {
 
     .history-cards {
-        /* mobile */
+        /* mobile 
         overflow: auto;
 
         ol {
@@ -135,31 +336,31 @@ section {
                 border-radius: 16px;
                 display: flex;
                 align-items: flex-end;
-                /* mobile */
+                /* mobile 
                 height: 325px;
                 width: calc(100% - 64px);
                 flex-shrink: 0;
             }
 
             li:nth-child(1) {
-                background-image: url(/casamento/assets/history-01.jpg);
+                background-image: url(/assets/history-01.jpg);
                 background-size: cover;
             }
 
             li:nth-child(2) {
-                background-image: url(/casamento/assets/history-02.jpg);
+                background-image: url(/assets/history-02.jpg);
                 background-size: cover;
             }
 
             li:nth-child(3) {
-                background-image: url(/casamento/assets/history-03.jpg);
+                background-image: url(/assets/history-03.jpg);
                 background-size: cover;
             }
         }
     }
 }
 
-/* ----- Section Ceremony ----- */
+/* ----- Section Ceremony ----- 
 
 #ceremony {
 
@@ -167,7 +368,7 @@ section {
         display: inline-block;
         width: 225px;
         height: 40px;
-        background-image: url(/casamento/assets/date.svg);
+        background-image: url(/assets/date.svg);
         background-repeat: no-repeat;
         margin: 0 auto;
     }
@@ -177,7 +378,7 @@ section {
     }
 }
 
-/* ----- Section Blessing ----- */
+/* ----- Section Blessing ----- 
 
 .btn {
     font-size: 20px;
