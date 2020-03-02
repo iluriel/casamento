@@ -18,9 +18,13 @@ $colors: (
 }
 
 /* ----- Page structure ----- */
+body {
+    overflow: hidden;
+}
+
 .section__float {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     background-color: color(white);
     border: 1px solid color(gold);
     border-bottom: 0;
@@ -28,22 +32,30 @@ $colors: (
     position: absolute;
 }
 
+.section-content {
+    padding: 0px 24px 0px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #section__history {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
     z-index: 1;
-    bottom: calc(64px - 80vh);
+    bottom: calc(64px - 100vh);
 }
 
 #section__ceremony {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     z-index: 2;
-    bottom: calc(32px - 80vh);
+    bottom: calc(32px - 100vh);
 }
 
 #section__blessing {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     z-index: 3;
-    bottom: calc(16px - 80vh);
+    bottom: calc(16px - 100vh);
 }
 
 /* ----- Typography ----- */
@@ -73,6 +85,15 @@ h1 {
     color: color(green-light);
 }
 
+strong {
+    display: inline-block;
+    width: 100%;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    color: color(black);
+}
+
 small {
     display: inline-block;
     width: 100%;
@@ -83,7 +104,25 @@ small {
     color: color(gray);
 }
 
+a {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    text-decoration: underline;
+    color: color(gold);
+}
+
 /* ----- Section Home ----- */
+nav {
+    position: fixed;
+    top: 4px;
+    left: 16px;
+    z-index: 1000;
+    visibility: hidden;
+}
+
 #section__home {
     width: 100%;
     height: 100%;
@@ -93,6 +132,10 @@ small {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    .scroll__logo {
+        display: none;
+    }
 
     .background__image--top-right {
         z-index: -1;
@@ -118,19 +161,18 @@ small {
 }
 
 /* ----- Section history ----- */
+
 #section__history {
 
-    .section__content {
+    .section__scroll {
+        position: relative;
+        padding-left: 24px;
+        overflow: auto;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
 
         ol {
-            width: 100%;
             list-style-type: none;
             display: flex;
-            overflow: auto;
 
             li {
                 color: color(white);
@@ -139,206 +181,8 @@ small {
                 border-radius: 16px;
                 display: flex;
                 align-items: flex-end;
-                width: calc(100% - 64px);
-                height: calc(width + 10px);
-                flex-shrink: 0;
-            }
-
-            li:nth-child(1) {
-                background-image: url(/assets/history-01.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(2) {
-                background-image: url(/assets/history-02.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(3) {
-                background-image: url(/assets/history-03.jpg);
-                background-size: cover;
-            }
-        }
-    }
-}
-
-/* ----- Scroll events ----- */
-
-.section__home--on {
-
-    #section__history {
-        .section__title {
-            padding: 4px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 16px;
-            line-height: 24px;
-            margin-bottom: 24px;
-            color: color(green-light);
-        }
-    }
-}
-
-.section__history--on {
-
-    #section__history {
-        top: 48px;
-    }
-
-    #section__ceremony {
-        bottom: calc(48px - 80vh);
-
-        .section__title {
-            padding: 4px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 16px;
-            line-height: 24px;
-            margin-bottom: 24px;
-            color: color(green-light);
-        }        
-    }
-}
-
-.section__ceremony--on {
-
-    #section__history {
-        top: 48px;
-    }
-
-    #section__ceremony {
-        top: 64px;
-    }
-
-    #section__blessing {
-        bottom: calc(32px - 80vh);
-
-        .section__title {
-            padding: 4px 24px 0px 24px;
-            display: inline-block;
-            width: 100%;
-            font-size: 16px;
-            line-height: 24px;
-            margin-bottom: 24px;
-            color: color(green-light);
-        }        
-    }
-}
-
-.section__blessing--on {
-
-    #section__history {
-        top: 48px;
-    }
-
-    #section__ceremony {
-        top: 64px;
-    }
-
-    #section__blessing {
-        top: 80px;
-    }
-}
-
-
-
-
-
-
-
-
-
-/* ----- Typography ----- 
-
-strong {
-    display: inline-block;
-    width: 100%;
-    font-size: 24px;
-    line-height: 36px;
-    text-align: center;
-    color: color(black);
-}
-
-a {
-    display: inline-block;
-    width: 100%;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    text-decoration: underline;
-    color: color(gold);
-}
-
-/* ----- Page structure ----- 
-.page-background {
-    width: 100%;
-    height: 100%;
-    background-image: url(/assets/background-mobile.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: -1;
-}
-
-.section-float {
-    height: 80vh;
-    padding: 16px 24px 0px 24px;
-    margin-top: -16px;
-    background-color: color(white);
-    border: 1px solid color(gold);
-    border-bottom: 0;
-    border-radius: 16px 16px 0 0;
-
-    .section-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-    }
-}
-
-/* ----- Section Home ----- 
-
-#home {
-    padding: 0 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    header {
-        margin-bottom: 16px;
-        width: 226px;
-        height: 144px;
-        background-image: url(/assets/logo-aline-iluriel-square.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-}
-
-/* ----- Section History ----- 
-
-#history {
-
-    .history-cards {
-        /* mobile 
-        overflow: auto;
-
-        ol {
-            list-style-type: none;
-            margin: 0px -8px;
-            display: flex;
-
-            li {
-                color: color(white);
-                padding: 16px;
-                margin: 8px;
-                border-radius: 16px;
-                display: flex;
-                align-items: flex-end;
-                /* mobile 
                 height: 325px;
-                width: calc(100% - 64px);
+                width: calc(100% - 112px);
                 flex-shrink: 0;
             }
 
@@ -356,15 +200,19 @@ a {
                 background-image: url(/assets/history-03.jpg);
                 background-size: cover;
             }
+            .scroll-spacing {
+                width: 8px;
+                flex-shrink: 0;
+            }
         }
     }
 }
 
-/* ----- Section Ceremony ----- 
+/* ----- Section ceremony ----- */
 
-#ceremony {
+#section__ceremony {
 
-    .date {
+    .ceremony__date {
         display: inline-block;
         width: 225px;
         height: 40px;
@@ -378,7 +226,7 @@ a {
     }
 }
 
-/* ----- Section Blessing ----- 
+/* ----- Section blessing ----- */
 
 .btn {
     font-size: 20px;
@@ -406,6 +254,7 @@ a {
 }
 
 footer {
+    position: relative;
     display: inline-block;
     width: 100%;
     font-size: 16px;
@@ -416,6 +265,7 @@ footer {
     background-color: color(gold);
     padding-top: 16px;
     padding-bottom: 16px;
+    margin-top: 32px;
 
     cite {
         font-size: 10px;
@@ -424,16 +274,137 @@ footer {
 
 }
 
-/*
-.flex {
-    display: flex;
-    flex-direction: row;
-    flex-direction: column;
-    width: 100%;
-    justify-content: flex-start;
-    justify-content: space-between;
-    justify-content: space-evenly;
-    justify-content: center;
-    align-items: center;
-    align-items: stretch;
-} */
+/* ----- Scroll events ----- */
+
+.section__home--on {
+
+    #section__history {
+        .section__title {
+            padding: 4px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            color: color(green-light);
+        }
+    }
+}
+
+.section__history--on {
+
+    nav {
+        visibility: visible;
+    }
+
+    #section__home {
+        opacity: 50%;
+    }
+
+    #section__history {
+        top: 48px;
+        position: fixed;
+
+        .section__title {
+            padding: 16px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 32px;
+            line-height: 48px;
+            margin-bottom: 24px;
+            color: color(green-dark);
+        }
+    }
+
+    #section__ceremony {
+        bottom: calc(48px - 100vh);
+
+        .section__title {
+            padding: 4px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            color: color(green-light);
+        }        
+    }
+}
+
+.section__ceremony--on {
+
+    nav {
+        visibility: visible;
+    }
+
+    #section__home {
+        opacity: 50%;
+    }
+
+    #section__history {
+        top: 48px;
+    }
+
+    #section__ceremony {
+        top: 64px;
+        position: fixed;
+
+        .section__title {
+            padding: 16px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 32px;
+            line-height: 48px;
+            margin-bottom: 24px;
+            color: color(green-dark);
+        }
+    }
+
+    #section__blessing {
+        bottom: calc(32px - 100vh);
+
+        .section__title {
+            padding: 4px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 24px;
+            color: color(green-light);
+        }        
+    }
+}
+
+.section__blessing--on {
+    
+    nav {
+        visibility: visible;
+    }
+
+    #section__home {
+        opacity: 50%;
+    }
+
+    #section__history {
+        top: 48px;
+    }
+
+    #section__ceremony {
+        top: 64px;
+    }
+
+    #section__blessing {
+        top: 80px;
+        position: fixed;
+
+        .section__title {
+            padding: 16px 24px 0px 24px;
+            display: inline-block;
+            width: 100%;
+            font-size: 32px;
+            line-height: 48px;
+            margin-bottom: 24px;
+            color: color(green-dark);
+        }
+    }
+}
