@@ -127,7 +127,7 @@ html {
         right: 0px;
         width: 240px;
         height: 362px;
-        background: url(/casamento/assets/superior-direito-folhas.png);
+        background: url(/assets/superior-direito-folhas.png);
         background-size: cover;
     }
     
@@ -138,7 +138,7 @@ html {
         left: 0px;
         width: 240px;
         height: 212px;
-        background: url(/casamento/assets/inferior-esquerdo-folhas.png);
+        background: url(/assets/inferior-esquerdo-folhas.png);
         background-size: cover;
     }
 }
@@ -175,17 +175,17 @@ html {
             }
 
             li:nth-child(1) {
-                background-image: url(/casamento/assets/history-01.jpg);
+                background-image: url(/assets/history-01.jpg);
                 background-size: cover;
             }
 
             li:nth-child(2) {
-                background-image: url(/casamento/assets/history-02.jpg);
+                background-image: url(/assets/history-02.jpg);
                 background-size: cover;
             }
 
             li:nth-child(3) {
-                background-image: url(/casamento/assets/history-03.jpg);
+                background-image: url(/assets/history-03.jpg);
                 background-size: cover;
             }
             .scroll-spacing {
@@ -213,7 +213,7 @@ html {
         display: inline-block;
         width: 225px;
         height: 40px;
-        background-image: url(/casamento/assets/date.svg);
+        background-image: url(/assets/date.svg);
         background-repeat: no-repeat;
         margin: 0 auto;
     }
