@@ -195,7 +195,8 @@ html {
         }
     }
 
-    &.active {
+    &.active,
+    &.passed {
         top: 48px;    
     }
 }
@@ -222,7 +223,8 @@ html {
         list-style-type: none;
     }
 
-    &.active {
+    &.active,
+    &.passed {
         top: 64px;    
     }
 }
@@ -281,7 +283,8 @@ html {
         }
     }
 
-    &.active {
+    &.active,
+    &.passed {
         top: 80px;    
     }
 }

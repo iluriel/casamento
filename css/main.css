@@ -211,7 +211,7 @@ html {
       flex-shrink: 0;
 }
 
-#section__history.active {
+#section__history.active, #section__history.passed {
   top: 48px;
 }
 
@@ -239,7 +239,7 @@ html {
   list-style-type: none;
 }
 
-#section__ceremony.active {
+#section__ceremony.active, #section__ceremony.passed {
   top: 64px;
 }
 
@@ -299,7 +299,7 @@ html {
   line-height: 24px;
 }
 
-#section__blessing.active {
+#section__blessing.active, #section__blessing.passed {
   top: 80px;
 }
 /*# sourceMappingURL=main.css.map */

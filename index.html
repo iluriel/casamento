@@ -26,7 +26,7 @@
 
     <main role="main" class="section__home--on">
 
-        <section id="section__home">
+        <section id="section__home" class="active" data-index="0">
             <nav class="scroll__logo">
                 <img class="nav__logo" height="40px" src="/assets/logo-aline-iluriel-horizontal.svg" alt="Iluriel e Aline">
             </nav>
@@ -37,7 +37,7 @@
             <div class="background__image--botton-left"></div>
         </section>
 
-        <section id="section__history" class="section__float">
+        <section id="section__history" class="section__float" data-index="1">
             <header id="click__history">
                 <h2 class="section__title">Nossa história</h2>
             </header>
@@ -51,7 +51,7 @@
             </div>
         </section>
 
-        <section id="section__ceremony" class="section__float">
+        <section id="section__ceremony" class="section__float" data-index="2">
             <header id="click__ceremony" class="section__title">
                 <h2>A cerimônia</h2>
             </header>
@@ -70,7 +70,7 @@
             </article>
         </section>
 
-        <section id="section__blessing" class="section__float">
+        <section id="section__blessing" class="section__float" data-index="3">
             <header id="click__blessing" class="section__title">
                 <h2>Sua bênção</h2>
             </header>
@@ -139,36 +139,46 @@
     <script>
         document.querySelector('body').addEventListener('wheel', function (e) {
             var scroll = e.deltaY;
-            var sec_home = document.querySelector("#section__home");
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
+            var body = document.querySelector("body");
 
             if (scroll >= 100) {
-                if (sec_history.classList.contains("active")) {
-                    if (sec_ceremony.classList.contains("active")) {
-                        sec_blessing.classList.add("active");
-                    } else {
-                        sec_ceremony.classList.add("active");
-                    }
-                } else {
-                sec_history.classList.add("active");
-                sec_home.classList.add("active");
-                }
+                var section_active = document.querySelector("section.active");
+                var section_active_index = section_active.getAttribute("data-index");
+                var next_index = Number(section_active_index) + 1;
+                var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+                if (next_index === 4) return;
+                if (body.classList.contains("transiting")) return;
+
+                body.classList.add("transiting");
+                setTimeout(function() {
+                    body.classList.remove("transiting");
+                }, 1000);
+
+                section_active.classList.remove("active");
+                section_active.classList.add("passed");
+                next_section.classList.add("active");
+                console.log(next_index)
             }
 
             if (scroll <= -100) {
-                if (sec_blessing.classList.contains("active")) {
-                    sec_blessing.classList.remove("active");
-                } else {
-                    if (sec_ceremony.classList.contains("active")) {
-                        sec_ceremony.classList.remove("active");
-                    } else {
-                        if (sec_history.classList.contains("active")) {
-                            sec_history.classList.remove("active");
-                        }
-                    }
-                }
+                var section_active = document.querySelector("section.active");
+                var section_active_index = section_active.getAttribute("data-index");
+                var next_index = Number(section_active_index) - 1;
+                var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+                if (next_index === -1) return;
+                if (body.classList.contains("transiting")) return;
+
+                body.classList.add("transiting");
+                setTimeout(function() {
+                    body.classList.remove("transiting");
+                }, 1000);
+
+                section_active.classList.remove("active");
+                next_section.classList.remove("passed");
+                next_section.classList.add("active");
+                console.log(next_index)
             }
         });
     </script>
