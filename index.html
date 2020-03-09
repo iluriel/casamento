@@ -26,7 +26,7 @@
 
     <main role="main" class="section__home--on">
 
-        <section id="section__home" class="active" data-index="0">
+        <section id="section__click" class="section__home active" data-index="0">
             <nav class="scroll__logo">
                 <img class="nav__logo" height="40px" src="/assets/logo-aline-iluriel-horizontal.svg" alt="Iluriel e Aline">
             </nav>
@@ -37,13 +37,23 @@
             <div class="background__image--botton-left"></div>
         </section>
 
-        <section id="section__history" class="section__float" data-index="1">
-            <header id="click__history">
+        <section class="section__history section__float section__click" data-index="1">
+            <header class="click__open">
                 <h2 class="section__title">Nossa história</h2>
             </header>
             <div class="section__scroll">
                 <ol>
-                    <li>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</li>
+                    <li>
+                        <!-- posicionamento -->
+                        <figure>
+                            <!-- tamanho -->
+                            <div>
+                                <!-- width: 100%; -->
+                                <img src="" alt="">
+                            </div>
+                            <figcaption>Nos conhecemos num "Picnic à moda antiga”. Lá descobrimos que eramos vizinhos.</figcaption>
+                        </figure>
+                    </li>
                     <li>Deu tão certo que pegamos o bouquet no primeiro casamento que fomos juntos. :)</li>
                     <li>Agora, com a direção de Deus, estamos felizes realizar um sonho de viver juntos.</li>
                     <div class="scroll-spacing"></div>
@@ -51,8 +61,8 @@
             </div>
         </section>
 
-        <section id="section__ceremony" class="section__float" data-index="2">
-            <header id="click__ceremony" class="section__title">
+        <section class="section__ceremony section__float section__click" data-index="2">
+            <header class="section__title click__open">
                 <h2>A cerimônia</h2>
             </header>
             <div class="section__content">
@@ -70,8 +80,8 @@
             </article>
         </section>
 
-        <section id="section__blessing" class="section__float" data-index="3">
-            <header id="click__blessing" class="section__title">
+        <section class="section__blessing section__float section__click" data-index="3">
+            <header class="section__title click__open">
                 <h2>Sua bênção</h2>
             </header>
             <div class="section__content">
@@ -90,91 +100,100 @@
     </main>
     
     <script>
+        var lastMove = {y: 0};
+        document.querySelector('body').addEventListener('touchstart', e => {
+            lastMove.y = event.touches[0].pageY;
+        }, false)
+        document.querySelector('body').addEventListener('touchmove', e => {
+            if (lastMove.y > e.touches[0].pageY) {
+                openSection()
+            } else {
+                closeSection()
+            }
+        }, false)
+        const openSection = () => {
+            var body = document.querySelector("body");
+            var section_active = document.querySelector("section.active");
+            var section_active_index = section_active.getAttribute("data-index");
+            var next_index = Number(section_active_index) + 1;
+            var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+            if (next_index === 4) return;
+            if (body.classList.contains("transiting")) return;
+
+            body.classList.add("transiting");
+            setTimeout(function() {
+                body.classList.remove("transiting");
+            }, 1000);
+
+            section_active.classList.remove("active");
+            section_active.classList.add("passed");
+            next_section.classList.add("active");
+        }
+
+        const closeSection = () => {
+            var body = document.querySelector("body");
+            var section_active = document.querySelector("section.active");
+            var section_active_index = section_active.getAttribute("data-index");
+            var next_index = Number(section_active_index) - 1;
+            var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+            if (next_index === -1) return;
+            if (body.classList.contains("transiting")) return;
+
+            body.classList.add("transiting");
+            setTimeout(function() {
+                body.classList.remove("transiting");
+            }, 1000);
+
+            section_active.classList.remove("active");
+            next_section.classList.remove("passed");
+            next_section.classList.add("active");
+        }
+
         document.querySelector('body').addEventListener('wheel', function (e) {
             var scroll = e.deltaY;
-            var body = document.querySelector("body");
 
             if (scroll >= 100) {
-                var section_active = document.querySelector("section.active");
-                var section_active_index = section_active.getAttribute("data-index");
-                var next_index = Number(section_active_index) + 1;
-                var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
-
-                if (next_index === 4) return;
-                if (body.classList.contains("transiting")) return;
-
-                body.classList.add("transiting");
-                setTimeout(function() {
-                    body.classList.remove("transiting");
-                }, 1000);
-
-                section_active.classList.remove("active");
-                section_active.classList.add("passed");
-                next_section.classList.add("active");
-                console.log(next_index)
+                openSection()
             }
 
             if (scroll <= -100) {
-                var section_active = document.querySelector("section.active");
-                var section_active_index = section_active.getAttribute("data-index");
-                var next_index = Number(section_active_index) - 1;
-                var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
-
-                if (next_index === -1) return;
-                if (body.classList.contains("transiting")) return;
-
-                body.classList.add("transiting");
-                setTimeout(function() {
-                    body.classList.remove("transiting");
-                }, 1000);
-
-                section_active.classList.remove("active");
-                next_section.classList.remove("passed");
-                next_section.classList.add("active");
-                console.log(next_index)
+                closeSection()
             }
         });
     </script>
 
     <script>
-        document.getElementById("click__history").addEventListener("click", function() {
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
-            if (sec_history.classList.contains("active")) {
-                sec_history.classList.remove("active");
-                sec_ceremony.classList.remove("active");
-                sec_blessing.classList.remove("active");
-            } else {
-                sec_history.classList.add("active");
-            }
-        });
+        const opened = {}
+        const setEventClick = _class => {
+            document.querySelectorAll(_class)
+                .forEach(element => element.addEventListener("click", () => {
+                    const index = element.parentElement.getAttribute('data-index')
+                    if (opened[index]) {
+                        closeSection()
+                        opened[index] = false
+                    } else {
+                        openSection()
+                        opened[index] = true
+                    }
+                }))
+        }
 
-        document.getElementById("click__ceremony").addEventListener("click", function() {
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
-            if (sec_ceremony.classList.contains("active")) {
-                sec_ceremony.classList.remove("active");
-                sec_blessing.classList.remove("active");
-            } else {
-                sec_history.classList.add("active");
-                sec_ceremony.classList.add("active");
-            }
-        });
-        
-        document.getElementById("click__blessing").addEventListener("click", function() {
-            var sec_history = document.querySelector("#section__history");
-            var sec_ceremony = document.querySelector("#section__ceremony");
-            var sec_blessing = document.querySelector("#section__blessing");
-            if (sec_blessing.classList.contains("active")) {
-                sec_blessing.classList.remove("active");
-            } else {
-                sec_history.classList.add("active");
-                sec_ceremony.classList.add("active");
-                sec_blessing.classList.add("active");
-            }        
-        });
+        setEventClick('.click__open')
+
+        const resetEventTouch = (_class) => {
+            document.querySelectorAll(_class).forEach(element => {
+                element.addEventListener('touchmove', e => {
+                    e.stopPropagation()
+                });
+                element.addEventListener('touchstart', e => {
+                    e.stopPropagation()
+                });
+            })
+        }
+        resetEventTouch('.section__scroll')
+        resetEventTouch('.section__content')
     </script>
 
 </body>
