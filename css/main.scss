@@ -167,58 +167,47 @@ html {
 
     .section__scroll {
         position: relative;
-        padding-left: 24px;
+        padding: 0px 16px;
         overflow: auto;
         display: flex;
-        height: calc(100% - 168px);
+        height: calc(100% - 200px);
+        align-items: center;
 
         ol {
             list-style-type: none;
             display: flex;
+            min-width: 800px;
+            max-width: 1608px;
+            overflow: auto;
+            margin: 0 auto;
 
             li {
-                /*color: color(white);
-                padding: 16px;
-                margin-right: 16px;
-                border-radius: 16px;
-                display: flex;
-                align-items: flex-end;
-                flex-shrink: 0;*/
-                figure {
-                    height: 100%;
-                    width: calc(100vw - 64px);
-                    margin-right: 16px;
 
-                    img {
-                        border-radius: 16px;
-                        width: 100%;
-                        object-fit: cover;
+                .listitem__figure--position {
+                    margin: 0px 8px;
+                    position: relative;
+                    
+                    .listitem__figure--size {
+                        height: 100%;
+                
+                        .listitem__figure--image {
+                            border-radius: 16px;
+                            width: 100%;
+                            object-fit: cover;
+                        }
                     }
-
-                    figcaption {
-                        color: color(gold);
+                    
+                    .listitem__figure--figcaption {
+                        bottom: 0;
+                        padding: 16px;
+                        color: color(white);
+                        float: left;
+                        position: absolute;
+                        font-size: 16px;
+                        line-height: 24px;
                     }
                 }
             }
-
-            /*li:nth-child(1) {
-                background-image: url(/assets/history-01.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(2) {
-                background-image: url(/assets/history-02.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(3) {
-                background-image: url(/assets/history-03.jpg);
-                background-size: cover;
-            }
-            .scroll-spacing {
-                width: 8px;
-                flex-shrink: 0;
-            }*/
         }
     }
 
@@ -236,6 +225,10 @@ html {
     transition: top 500ms;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     z-index: 2;
+
+    .section__content {
+        height: calc(100% - 152px);
+    }
 
     .ceremony__date {
         display: inline-block;
@@ -264,6 +257,12 @@ html {
     transition: top 500ms;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     z-index: 3;
+    justify-content: space-between;
+
+    .section__content {
+        height: calc(100% - 216px);
+    }
+
 
     .btn {
         font-size: 20px;
@@ -315,3 +314,4 @@ html {
         top: 80px;    
     }
 }
+

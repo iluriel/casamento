@@ -172,12 +172,15 @@ html {
 
 .section__history .section__scroll {
   position: relative;
-  padding-left: 24px;
+  padding: 0px 16px;
   overflow: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: calc(100% - 168px);
+  height: calc(100% - 200px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .section__history .section__scroll ol {
@@ -185,51 +188,36 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /*li:nth-child(1) {
-                background-image: url(/assets/history-01.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(2) {
-                background-image: url(/assets/history-02.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(3) {
-                background-image: url(/assets/history-03.jpg);
-                background-size: cover;
-            }
-            .scroll-spacing {
-                width: 8px;
-                flex-shrink: 0;
-            }*/
+  min-width: 800px;
+  max-width: 1608px;
+  overflow: auto;
+  margin: 0 auto;
 }
 
-.section__history .section__scroll ol li {
-  /*color: color(white);
-                padding: 16px;
-                margin-right: 16px;
-                border-radius: 16px;
-                display: flex;
-                align-items: flex-end;
-                flex-shrink: 0;*/
+.section__history .section__scroll ol li .listitem__figure--position {
+  margin: 0px 8px;
+  position: relative;
 }
 
-.section__history .section__scroll ol li figure {
+.section__history .section__scroll ol li .listitem__figure--position .listitem__figure--size {
   height: 100%;
-  width: calc(100vw - 64px);
-  margin-right: 16px;
 }
 
-.section__history .section__scroll ol li figure img {
+.section__history .section__scroll ol li .listitem__figure--position .listitem__figure--size .listitem__figure--image {
   border-radius: 16px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.section__history .section__scroll ol li figure figcaption {
-  color: #947100;
+.section__history .section__scroll ol li .listitem__figure--position .listitem__figure--figcaption {
+  bottom: 0;
+  padding: 16px;
+  color: #ffffff;
+  float: left;
+  position: absolute;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .section__history.active, .section__history.passed {
@@ -245,6 +233,10 @@ html {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
   z-index: 2;
+}
+
+.section__ceremony .section__content {
+  height: calc(100% - 152px);
 }
 
 .section__ceremony .ceremony__date {
@@ -273,6 +265,13 @@ html {
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   z-index: 3;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section__blessing .section__content {
+  height: calc(100% - 216px);
 }
 
 .section__blessing .btn {
