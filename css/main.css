@@ -96,7 +96,7 @@ html {
 }
 
 /* ----- Section Home ----- */
-#section__home {
+.section__home {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -116,7 +116,7 @@ html {
           align-items: center;
 }
 
-#section__home .nav__logo {
+.section__home .nav__logo {
   position: fixed;
   top: 4px;
   left: 16px;
@@ -124,7 +124,7 @@ html {
   visibility: hidden;
 }
 
-#section__home .background__image {
+.section__home .background__image {
   width: 100px;
   width: 100%;
   height: 100vh;
@@ -132,30 +132,30 @@ html {
 }
 
 @media screen and (min-width: 640px) {
-  #section__home .background__image {
+  .section__home .background__image {
     background: url(/assets/background-640.jpg) no-repeat fixed center;
   }
 }
 
 @media screen and (min-width: 1028px) {
-  #section__home .background__image {
+  .section__home .background__image {
     background: url(/assets/background-1028.jpg) no-repeat fixed center;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  #section__home .background__image {
+  .section__home .background__image {
     background: url(/assets/background-1440.jpg) no-repeat fixed center;
   }
 }
 
 @media screen and (min-width: 1920px) {
-  #section__home .background__image {
+  .section__home .background__image {
     background: url(/assets/background-1920.jpg) no-repeat fixed center;
   }
 }
 
-#section__home .background__image--top-right {
+.section__home .background__image--top-right {
   z-index: -1;
   position: fixed;
   top: 0px;
@@ -166,7 +166,7 @@ html {
   background-size: cover;
 }
 
-#section__home .background__image--botton-left {
+.section__home .background__image--botton-left {
   z-index: -1;
   position: fixed;
   bottom: 0px;
@@ -177,8 +177,21 @@ html {
   background-size: cover;
 }
 
+.section__home .background__image--vector {
+  z-index: -1;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  background: url(/assets/background-vector-mobile.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* ----- Section history ----- */
-#section__history {
+.section__history {
   top: calc(100% - 96px);
   height: calc(100% - 48px);
   -webkit-transition: top 500ms;
@@ -188,66 +201,62 @@ html {
   z-index: 1;
 }
 
-#section__history .section__scroll {
+.section__history .section__scroll {
   position: relative;
-  padding-left: 24px;
+  padding: 0px 16px;
   overflow: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: calc(100% - 200px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#section__history .section__scroll ol {
+.section__history .section__scroll ol {
   list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-width: 800px;
+  max-width: 1608px;
+  overflow: auto;
+  margin: 0 auto;
 }
 
-#section__history .section__scroll ol li {
-  color: #ffffff;
-  padding: 16px;
-  margin-right: 16px;
+.section__history .section__scroll ol li .listitem__figure--position {
+  margin: 0px 8px;
+  position: relative;
+}
+
+.section__history .section__scroll ol li .listitem__figure--position .listitem__figure--size {
+  height: 100%;
+}
+
+.section__history .section__scroll ol li .listitem__figure--position .listitem__figure--size .listitem__figure--image {
   border-radius: 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  height: 325px;
-  width: calc(100% - 112px);
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-#section__history .section__scroll ol li:nth-child(1) {
-  background-image: url(/assets/history-01.jpg);
-  background-size: cover;
+.section__history .section__scroll ol li .listitem__figure--position .listitem__figure--figcaption {
+  bottom: 0;
+  padding: 16px;
+  color: #ffffff;
+  float: left;
+  position: absolute;
+  font-size: 16px;
+  line-height: 24px;
 }
 
-#section__history .section__scroll ol li:nth-child(2) {
-  background-image: url(/assets/history-02.jpg);
-  background-size: cover;
-}
-
-#section__history .section__scroll ol li:nth-child(3) {
-  background-image: url(/assets/history-03.jpg);
-  background-size: cover;
-}
-
-#section__history .section__scroll ol .scroll-spacing {
-  width: 8px;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-#section__history.active, #section__history.passed {
+.section__history.active, .section__history.passed {
   top: 48px;
 }
 
 /* ----- Section ceremony ----- */
-#section__ceremony {
+.section__ceremony {
   top: calc(100% - 64px);
   height: calc(100% - 64px);
   -webkit-transition: top 500ms;
@@ -257,7 +266,11 @@ html {
   z-index: 2;
 }
 
-#section__ceremony .ceremony__date {
+.section__ceremony .section__content {
+  height: calc(100% - 152px);
+}
+
+.section__ceremony .ceremony__date {
   display: inline-block;
   width: 225px;
   height: 40px;
@@ -266,16 +279,16 @@ html {
   margin: 0 auto;
 }
 
-#section__ceremony ol {
+.section__ceremony ol {
   list-style-type: none;
 }
 
-#section__ceremony.active, #section__ceremony.passed {
+.section__ceremony.active, .section__ceremony.passed {
   top: 64px;
 }
 
 /* ----- Section blessing ----- */
-#section__blessing {
+.section__blessing {
   top: calc(100% - 32px);
   height: calc(100% - 80px);
   -webkit-transition: top 500ms;
@@ -283,9 +296,16 @@ html {
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   z-index: 3;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-#section__blessing .btn {
+.section__blessing .section__content {
+  height: calc(100% - 216px);
+}
+
+.section__blessing .btn {
   font-size: 20px;
   line-height: 28px;
   text-align: center;
@@ -298,19 +318,19 @@ html {
   margin: 16px 0 0;
 }
 
-#section__blessing .btn-primary {
+.section__blessing .btn-primary {
   color: #ffffff;
   background-color: #947100;
   border: 2px solid #947100;
 }
 
-#section__blessing .btn-secondary {
+.section__blessing .btn-secondary {
   color: #6f5500;
   background-color: #ffffff;
   border: 2px solid #947100;
 }
 
-#section__blessing footer {
+.section__blessing footer {
   position: absolute;
   bottom: 0;
   display: inline-block;
@@ -325,12 +345,12 @@ html {
   margin-top: 32px;
 }
 
-#section__blessing footer cite {
+.section__blessing footer cite {
   font-size: 10px;
   line-height: 24px;
 }
 
-#section__blessing.active, #section__blessing.passed {
+.section__blessing.active, .section__blessing.passed {
   top: 80px;
 }
 /*# sourceMappingURL=main.css.map */

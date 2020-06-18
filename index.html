@@ -33,53 +33,72 @@
     </main>
     <!--
     <script>
+        var lastMove = {y: 0};
+        document.querySelector('body').addEventListener('touchstart', e => {
+            lastMove.y = event.touches[0].pageY;
+        }, false)
+        document.querySelector('body').addEventListener('touchmove', e => {
+            if (lastMove.y > e.touches[0].pageY) {
+                openSection()
+            } else {
+                closeSection()
+            }
+        }, false)
+        const openSection = () => {
+            var body = document.querySelector("body");
+            var section_active = document.querySelector("section.active");
+            var section_active_index = section_active.getAttribute("data-index");
+            var next_index = Number(section_active_index) + 1;
+            var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+            if (next_index === 4) return;
+            if (body.classList.contains("transiting")) return;
+
+            body.classList.add("transiting");
+            setTimeout(function() {
+                body.classList.remove("transiting");
+            }, 1000);
+
+            section_active.classList.remove("active");
+            section_active.classList.add("passed");
+            next_section.classList.add("active");
+        }
+
+        const closeSection = () => {
+            var body = document.querySelector("body");
+            var section_active = document.querySelector("section.active");
+            var section_active_index = section_active.getAttribute("data-index");
+            var next_index = Number(section_active_index) - 1;
+            var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
+
+            if (next_index === -1) return;
+            if (body.classList.contains("transiting")) return;
+
+            body.classList.add("transiting");
+            setTimeout(function() {
+                body.classList.remove("transiting");
+            }, 1000);
+
+            section_active.classList.remove("active");
+            next_section.classList.remove("passed");
+            next_section.classList.add("active");
+        }
+
         document.querySelector('body').addEventListener('wheel', function (e) {
             var scroll = e.deltaY;
-            var body = document.querySelector("body");
 
             if (scroll >= 100) {
-                var section_active = document.querySelector("section.active");
-                var section_active_index = section_active.getAttribute("data-index");
-                var next_index = Number(section_active_index) + 1;
-                var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
-
-                if (next_index === 4) return;
-                if (body.classList.contains("transiting")) return;
-
-                body.classList.add("transiting");
-                setTimeout(function() {
-                    body.classList.remove("transiting");
-                }, 1000);
-
-                section_active.classList.remove("active");
-                section_active.classList.add("passed");
-                next_section.classList.add("active");
-                console.log(next_index)
+                openSection()
             }
 
             if (scroll <= -100) {
-                var section_active = document.querySelector("section.active");
-                var section_active_index = section_active.getAttribute("data-index");
-                var next_index = Number(section_active_index) - 1;
-                var next_section = document.querySelectorAll('section[data-index="' + next_index + '"]')[0];
-
-                if (next_index === -1) return;
-                if (body.classList.contains("transiting")) return;
-
-                body.classList.add("transiting");
-                setTimeout(function() {
-                    body.classList.remove("transiting");
-                }, 1000);
-
-                section_active.classList.remove("active");
-                next_section.classList.remove("passed");
-                next_section.classList.add("active");
-                console.log(next_index)
+                closeSection()
             }
         });
     </script>
 
     <script>
+<<<<<<< HEAD
         document.getElementById("click__history").addEventListener("click", function() {
             var sec_history = document.querySelector("#section__history");
             var sec_ceremony = document.querySelector("#section__ceremony");
@@ -119,6 +138,38 @@
             }        
         });
     </script>-->
+=======
+        const opened = {}
+        const setEventClick = _class => {
+            document.querySelectorAll(_class)
+                .forEach(element => element.addEventListener("click", () => {
+                    const index = element.parentElement.getAttribute('data-index')
+                    if (opened[index]) {
+                        closeSection()
+                        opened[index] = false
+                    } else {
+                        openSection()
+                        opened[index] = true
+                    }
+                }))
+        }
+
+        setEventClick('.click__open')
+
+        const resetEventTouch = (_class) => {
+            document.querySelectorAll(_class).forEach(element => {
+                element.addEventListener('touchmove', e => {
+                    e.stopPropagation()
+                });
+                element.addEventListener('touchstart', e => {
+                    e.stopPropagation()
+                });
+            })
+        }
+        resetEventTouch('.section__scroll')
+        resetEventTouch('.section__content')
+    </script>
+>>>>>>> 85b987ba9fb3572db181ffe383a55d33a9f66735
 
 </body>
 </html>

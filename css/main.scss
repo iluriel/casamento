@@ -102,7 +102,7 @@ html {
 
 /* ----- Section Home ----- */
 
-#section__home {
+.section__home {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -160,11 +160,24 @@ html {
         background: url(/assets/inferior-esquerdo-folhas.png);
         background-size: cover;
     }
+
+    .background__image--vector {
+        z-index: -1;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        background: url(/assets/background-vector-mobile.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }
 
 /* ----- Section history ----- */
 
-#section__history {
+.section__history {
     top: calc(100% - 96px);
     height: calc(100% - 48px);
     transition: top 500ms;
@@ -173,43 +186,46 @@ html {
 
     .section__scroll {
         position: relative;
-        padding-left: 24px;
+        padding: 0px 16px;
         overflow: auto;
         display: flex;
+        height: calc(100% - 200px);
+        align-items: center;
 
         ol {
             list-style-type: none;
             display: flex;
+            min-width: 800px;
+            max-width: 1608px;
+            overflow: auto;
+            margin: 0 auto;
 
             li {
-                color: color(white);
-                padding: 16px;
-                margin-right: 16px;
-                border-radius: 16px;
-                display: flex;
-                align-items: flex-end;
-                height: 325px;
-                width: calc(100% - 112px);
-                flex-shrink: 0;
-            }
 
-            li:nth-child(1) {
-                background-image: url(/assets/history-01.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(2) {
-                background-image: url(/assets/history-02.jpg);
-                background-size: cover;
-            }
-
-            li:nth-child(3) {
-                background-image: url(/assets/history-03.jpg);
-                background-size: cover;
-            }
-            .scroll-spacing {
-                width: 8px;
-                flex-shrink: 0;
+                .listitem__figure--position {
+                    margin: 0px 8px;
+                    position: relative;
+                    
+                    .listitem__figure--size {
+                        height: 100%;
+                
+                        .listitem__figure--image {
+                            border-radius: 16px;
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    
+                    .listitem__figure--figcaption {
+                        bottom: 0;
+                        padding: 16px;
+                        color: color(white);
+                        float: left;
+                        position: absolute;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
             }
         }
     }
@@ -222,12 +238,16 @@ html {
 
 /* ----- Section ceremony ----- */
 
-#section__ceremony {
+.section__ceremony {
     top: calc(100% - 64px);
     height: calc(100% - 64px);
     transition: top 500ms;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     z-index: 2;
+
+    .section__content {
+        height: calc(100% - 152px);
+    }
 
     .ceremony__date {
         display: inline-block;
@@ -250,12 +270,18 @@ html {
 
 /* ----- Section blessing ----- */
 
-#section__blessing {
+.section__blessing {
     top: calc(100% - 32px);
     height: calc(100% - 80px);
     transition: top 500ms;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     z-index: 3;
+    justify-content: space-between;
+
+    .section__content {
+        height: calc(100% - 216px);
+    }
+
 
     .btn {
         font-size: 20px;
@@ -307,3 +333,4 @@ html {
         top: 80px;    
     }
 }
+
