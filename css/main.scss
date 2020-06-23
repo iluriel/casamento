@@ -89,7 +89,7 @@ html,
     margin-bottom: 24px;
 }
 
-/* ----- Componentes ----- */
+/* ----- Buttons ----- */
 
 .button__primary {
     padding: 8px 32px;
@@ -103,9 +103,11 @@ html,
     line-height: 28px;
 	text-decoration:none;
 }
+
 .button__primary:hover {
     background-color:#816302;
 }
+
 .button__primary:active {
 	position:relative;
 	top:1px;
