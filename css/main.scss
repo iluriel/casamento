@@ -112,3 +112,26 @@ html,
 	position:relative;
 	top:1px;
 }
+
+/* html {
+    cursor: none;
+}
+
+.cursor {
+    mix-blend-mode: multiply;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    background-color: #947100;
+    border-radius: 100px;
+    backface-visibility: hidden;
+    transition: transform 0.3s ease-out;
+  
+    &.is-moving {
+      transform: scale(2);
+    }
+} */
+  
