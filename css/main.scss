@@ -38,26 +38,6 @@ html,
       align-items: center;
     }
 
-.button__primary {
-    padding: 8px 32px;
-    background-color:#947100;
-	border-radius:22px;
-	border:1px solid #947100;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-    font-size:20px;
-    line-height: 28px;
-	text-decoration:none;
-}
-.button__primary:hover {
-	background-color:#816302;
-}
-.button__primary:active {
-	position:relative;
-	top:1px;
-}
-
 /* ----- Home ----- */
 
 .section__home {
@@ -74,9 +54,10 @@ html,
 
 .background__leaves--topright {
     position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
+    top: 0px;
+    right: 0px;
+    width: 20%;
+    z-index: 0;
     @media (orientation: portrait) {
         width: 66%;
         height: auto;
@@ -89,9 +70,10 @@ html,
 
 .background__leaves--bottonleft {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+    bottom: 0px;
+    left: 0px;
+    width: 20%;
+    z-index: 0;
     @media (orientation: portrait) {
         width: 66%;
         height: auto;
@@ -105,4 +87,26 @@ html,
 .container__home p {
     margin-top: 16px;
     margin-bottom: 24px;
+}
+
+/* ----- Componentes ----- */
+
+.button__primary {
+    padding: 8px 32px;
+    background-color:#947100;
+	border-radius:22px;
+	border:1px solid #947100;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+    font-size:20px;
+    line-height: 28px;
+	text-decoration:none;
+}
+.button__primary:hover {
+    background-color:#816302;
+}
+.button__primary:active {
+	position:relative;
+	top:1px;
 }
