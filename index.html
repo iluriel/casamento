@@ -8,18 +8,57 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Kurale&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
     <title>Aline & Iluriel</title>
 </head>
 
 <body>
 
-    <main role="main" class="section__home--on">
+    <!-- Slider main container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide section__home">
+                <div class="container__home">
+                    <img src="/assets/logo-aline-iluriel-square.svg" alt="Aline e Iluriel">
+                    <p>Convidam para seu casamento</p>
+                    <p>Em breve... Mais informações</p>
+                    <a href="https://www.querodecasamento.com.br/lista-de-casamento/aline-iluriel/" target="_blank" class="button__primary">Presentear os noivos</a>
+                </div>
+                <img src="/assets/superior-direito-folhas.png" alt="" class="background__leaves--topright">
+                <img src="/assets/inferior-esquerdo-folhas.png" alt="" class="background__leaves--bottonleft">
+            </div>
 
-        <section id="section__home" class="active" data-index="0">
-            <div class="background__image"></div>
-        </section>
+            <!--<div class="swiper-slide section__history">
+                <h2>Nossa história</h2>
+            </div>
+            <div class="swiper-slide section__ceremony">
+                <h2>A cerimônia</h2>
+            </div>
+            <div class="swiper-slide section__blessing">
+                <h2>Sua bênção</h2>
+            </div>-->
+        </div>
 
-    </main>
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            loop: false,
+            mousewheel: true,
+            keyboard: {
+                enabled: true,
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+    </script>
 
 </body>
 </html>
