@@ -94,18 +94,20 @@ html,
 .button__primary {
     padding: 8px 32px;
     background-color:#947100;
-	border-radius:22px;
-	border:1px solid #947100;
+	border-radius:100px;
+	border:2px solid #947100;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
     font-size:20px;
     line-height: 28px;
-	text-decoration:none;
+    text-decoration:none;
+    margin: 8px 8px;
 }
 
 .button__primary:hover {
     background-color:#816302;
+    border:2px solid #816302;
 }
 
 .button__primary:active {
@@ -113,25 +115,27 @@ html,
 	top:1px;
 }
 
-/* html {
-    cursor: none;
+.button__secondary {
+    padding: 8px 32px;
+    background-color:#fff;
+	border-radius:100px;
+	border:2px solid #947100;
+	display:inline-block;
+	cursor:pointer;
+	color:#947100;
+    font-size:20px;
+    line-height: 28px;
+    text-decoration:none;
+    margin: 8px 8px;
 }
 
-.cursor {
-    mix-blend-mode: multiply;
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 50%;
-    left: 50%;
-    margin: -8px 0 0 -8px;
-    background-color: #947100;
-    border-radius: 100px;
-    backface-visibility: hidden;
-    transition: transform 0.3s ease-out;
-  
-    &.is-moving {
-      transform: scale(2);
-    }
-} */
-  
+.button__secondary:hover {
+    background-color:#816302;
+    border:2px solid #816302;
+	color:#ffffff;
+}
+
+.button__secondary:active {
+	position:relative;
+	top:1px;
+}
