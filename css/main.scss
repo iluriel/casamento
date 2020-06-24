@@ -103,6 +103,7 @@ html,
     line-height: 28px;
     text-decoration:none;
     margin: 8px 8px;
+    z-index: 1000;
 }
 
 .button__primary:hover {
@@ -127,6 +128,7 @@ html,
     line-height: 28px;
     text-decoration:none;
     margin: 8px 8px;
+    z-index: 1000;
 }
 
 .button__secondary:hover {
