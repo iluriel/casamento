@@ -142,9 +142,9 @@ body {
 }
 
 .button__secondary:hover {
-  background-color: #816302;
+  background-color: #fff;
   border: 2px solid #816302;
-  color: #ffffff;
+  color: #816302;
 }
 
 .button__secondary:active {
