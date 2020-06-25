@@ -60,7 +60,7 @@ html,
     top: 0px;
     right: 0px;
     width: 20%;
-    z-index: -1;
+    z-index: 0;
     @media (orientation: portrait) {
         width: 66%;
         height: auto;
@@ -76,7 +76,7 @@ html,
     bottom: 0px;
     left: 0px;
     width: 20%;
-    z-index: -1;
+    z-index: 0;
     @media (orientation: portrait) {
         width: 66%;
         height: auto;
