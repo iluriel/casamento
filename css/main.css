@@ -159,4 +159,18 @@ body {
   position: relative;
   top: 1px;
 }
+
+#cursor {
+  display: block;
+  position: absolute;
+  margin-top: -8px;
+  margin-left: -8px;
+  width: 16px;
+  height: 16px;
+  z-index: -1;
+  background: #816302;
+  text-align: center;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}
 /*# sourceMappingURL=main.css.map */

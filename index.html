@@ -19,7 +19,7 @@
         <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide section__home">
-                <div class="cursor"></div>
+                <div id="cursor" style="z-index: 1000;"></div>
                 <div class="container__home" style="z-index: 1000;">
                     <img src="/assets/logo-aline-iluriel-square.svg" alt="Aline e Iluriel">
                     <p>Convidam para seu casamento</p>
@@ -28,6 +28,7 @@
                 </div>
                 <img src="/assets/superior-direito-folhas.png" alt="" class="background__leaves--topright">
                 <img src="/assets/inferior-esquerdo-folhas.png" alt="" class="background__leaves--bottonleft">
+
             </div>
 
             <!--<div class="swiper-slide section__history">
@@ -57,6 +58,20 @@
             scrollbar: {
                 el: '.swiper-scrollbar',
             },
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $('body').mouseover(function () {
+            $(this).css({ cursor: 'none' });
+        });
+
+        $(document).on('mousemove', function (e) {
+            $('#cursor').css({
+                left: e.pageX,
+                top: e.pageY
+            });
         });
     </script>
 
